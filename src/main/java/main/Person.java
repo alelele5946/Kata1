@@ -1,14 +1,12 @@
 package main;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.time.LocalDate;
+import java.time.Period;
 
 public class Person {
     private final String name;
-    private final Calendar birthdate;
-    private final long Milliseconds_per_Year = (long) (365.25*24*60*60*1000L)
-    public Person(String name, Calendar birthdate) {
+    private final LocalDate birthdate;
+    public Person(String name, LocalDate birthdate) {
         this.name = name;
         this.birthdate = birthdate;
     }
@@ -18,8 +16,9 @@ public class Person {
     }
     
     int getAge(){
-        Calendar now = GregorianCalendar.getInstance();
-        retrun 
+        
+        LocalDate now= LocalDate.now();
+        return Period.between(this.birthdate, now ).getYears();
         
     
     }
